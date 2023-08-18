@@ -1,4 +1,4 @@
-package org.tixan.englishApp;
+package org.tixan.lernApp;
 
 import com.github.kwhat.jnativehook.GlobalScreen;
 import com.github.kwhat.jnativehook.NativeHookException;

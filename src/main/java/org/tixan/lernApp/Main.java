@@ -1,4 +1,4 @@
-package org.tixan.englishApp;
+package org.tixan.lernApp;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,7 +14,7 @@ public class Main extends GlobalKeyListener {
     }
 
     private static void createAndShowGUI() {
-        JFrame frame = new JFrame("English");
+        JFrame frame = new JFrame("Learn");
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
