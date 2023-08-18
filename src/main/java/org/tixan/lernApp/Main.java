@@ -38,7 +38,7 @@ public class Main extends GlobalKeyListener {
 
                 if (option == JOptionPane.YES_OPTION) {
                     String inputText = inputField.getText();
-                    if (inputText.equals("A"))
+                    if (inputText.equals("Anready939(T)"))
                         System.exit(0);
                 }
             }
