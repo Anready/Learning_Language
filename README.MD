@@ -1,4 +1,5 @@
 **Learn Language Application README.md**
+![Логотип](https://github.com/Anready/Learning_Language/raw/master/logo.jpg)
 
 The Learn Language application is designed to assist you in learning new words, especially if you spend a significant amount of time using your laptop or computer. Wondering how it works? Every 15 minutes, the application will pop up and take over your entire screen, preventing you from bypassing the word translation challenge. To enhance security, features have been implemented to prevent clicking the Windows button. Furthermore, when closing the application, you'll need to input your password (default: Anready939(T)).
 
