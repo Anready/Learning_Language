@@ -38,8 +38,12 @@ public class Main extends GlobalKeyListener {
 
                 if (option == JOptionPane.YES_OPTION) {
                     String inputText = inputField.getText();
-                    if (inputText.equals("Anready939(T)"))
-                        System.exit(0);
+                    try {
+                        if (inputText.equals(readData()[2]))
+                            System.exit(0);
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
                 }
             }
         });
@@ -112,7 +116,7 @@ public class Main extends GlobalKeyListener {
 
                     new Thread(() -> {
                         try {
-                            Thread.sleep(15 * 60 * 1000); // set 15 minute as time hide
+                            Thread.sleep(15 * 60 * 1000); // set 15 minutes as the time to hide
                         } catch (InterruptedException ignored) {
                         }
 
@@ -153,5 +157,45 @@ public class Main extends GlobalKeyListener {
 
         Random r = new Random();
         return words[r.nextInt(words.length)].split("#");
+    }
+
+    private static String[] readData() throws IOException {
+        String user = System.getProperty("user.name");
+        String filePath = "C:\\Users\\" + user + "\\AppData\\Roaming\\Microsoft\\Windows\\settings"; // Specify your file path here
+
+        File file = new File(filePath);
+        String[] lines = {};
+        if (file.exists()) {
+            BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(
+                            new FileInputStream(filePath),
+                            StandardCharsets.UTF_8));
+
+            String data;
+            while ((data = reader.readLine()) != null) {
+                lines = Arrays.copyOf(lines, lines.length + 1);
+                lines[lines.length - 1] = data;
+            }
+            reader.close();
+        } else {
+            try {
+                FileWriter fileWriter = new FileWriter(filePath, false); // 'true' means append mode
+
+                String dataToAppend = "Russian\nEnglish\nAnready(T)";
+                fileWriter.write(dataToAppend);
+
+                fileWriter.close();
+            } catch (IOException ignored) {
+            }
+
+            String[] data = {"Russian", "English", "Anready(T)"};
+
+            for (int i = 0; i < 3; i++){
+                lines = Arrays.copyOf(lines, lines.length + 1);
+                lines[lines.length - 1] = data[i];
+            }
+        }
+
+        return lines;
     }
 }
